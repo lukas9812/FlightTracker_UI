@@ -1,6 +1,7 @@
 'use client';
 
 import React, {useState} from 'react';
+import {UrlStrings} from "@/app/models/urlStrings";
 
 export default function LoginPage() {
     const [email, setEmail] = useState('');
@@ -11,7 +12,7 @@ export default function LoginPage() {
 
         const loginData = {email, password};
 
-        const response = await fetch('http://localhost:5288/api/login', {
+        const response = await fetch(UrlStrings.login, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(loginData),

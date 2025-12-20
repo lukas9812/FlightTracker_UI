@@ -2,27 +2,24 @@
 import {FlightRecord} from "@/app/interfaces/flightRecord";
 import React, {useState} from "react";
 import NotificationSuccess from "@/app/components/customNotification";
-type Props = { flightRecords: FlightRecord[]; };
-export default function FlightsTable({ flightRecords }: Props) {
+import {UrlStrings} from "@/app/models/urlStrings";
 
-    const getFlights = async () => {
-        const res = await fetch('http://localhost:5288/api/flight-tracker/all', {
-            cache: 'no-store',
-        });
-        if (!res.ok) return [];
-        return res.json();
-    }
+type Props = { flightRecords: FlightRecord[]; };
+
+export default function FlightsTable({flightRecords}: Props) {
+
     const [showSuccess, setShowSuccess] = useState(false);
     const [flights, setFlights] = useState(flightRecords)
 
-    const handleDelete = async (id:string)=> {
-        const response = await fetch(`http://localhost:5288/api/flight-tracker/delete?query=${id}`, {
+    const handleDelete = async (id: string) => {
+        const response = await fetch(UrlStrings.deleteOneFlight(id), {
             cache: 'no-store',
             method: 'DELETE'
         });
         if (response.ok) {
             setFlights((prevFlights) => prevFlights.filter(flight => flight.id !== id));
             setShowSuccess(true);
+            setTimeout(() => setShowSuccess(false), 5000);
         } else {
             console.error("Error during delete in ASP.NET Server.");
         }

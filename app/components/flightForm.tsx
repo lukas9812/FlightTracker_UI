@@ -1,6 +1,7 @@
 'use client';
 import React, {useState} from "react";
 import NotificationSuccess from "@/app/components/customNotification";
+import {UrlStrings} from "@/app/models/urlStrings";
 
 export default function NewFlightRecord() {
 
@@ -25,9 +26,7 @@ export default function NewFlightRecord() {
         else setDestination(query);
 
         if (query.length >= 3) {
-            const response = await fetch(`http://localhost:5288/api/flight-tracker/search?query=${query}`, {
-                credentials: 'include'
-            });
+            const response = await fetch(UrlStrings.searchCities(query), { credentials: 'include' });
 
             if (response.ok) {
                 const data = await response.json();
@@ -61,7 +60,7 @@ export default function NewFlightRecord() {
         };
 
         try {
-            const response = await fetch('http://localhost:5288/api/flight-tracker/insert', {
+            const response = await fetch(UrlStrings.insertOneFlight, {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(flightData),
@@ -212,7 +211,7 @@ export default function NewFlightRecord() {
                 </div>
                 <div className='flex items-center justify-center gap-2'>
                     <button
-                        className='mt-8 flex justify-center gap-1 rounded-md bg-black py-3 px-4 text-white my-auto cursor-pointer max-md:w-full max-md:py-1'>
+                        className='mt-4 flex justify-center gap-1 rounded-md bg-black py-3 px-4 text-white my-auto cursor-pointer max-md:w-full max-md:py-1'>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                              className="size-5">
                             <path
