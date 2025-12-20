@@ -2,6 +2,8 @@
 import React, {useState} from "react";
 import NotificationSuccess from "@/app/components/customNotification";
 import {UrlStrings} from "@/app/models/urlStrings";
+import {FlightRecord} from "@/app/interfaces/flightRecord";
+import {useFlightStore} from "@/app/models/store";
 
 export default function NewFlightRecord() {
 
@@ -20,7 +22,7 @@ export default function NewFlightRecord() {
     // Notification
     const [showSuccess, setShowSuccess] = useState(false);
     const [note, setNote] = useState('');
-
+    const addRecord = useFlightStore((state) => state.addRecord);
     const handleSearch = async (query: string, type: 'from' | 'destination') => {
         if (type === 'from') setFrom(query);
         else setDestination(query);
@@ -75,6 +77,10 @@ export default function NewFlightRecord() {
 
                 setShowSuccess(true);
                 setTimeout(() => setShowSuccess(false), 5000);
+
+                const backendRecord: FlightRecord = await response.json();
+                addRecord(backendRecord);
+
             } else {
                 console.error("Error", response.statusText);
             }
