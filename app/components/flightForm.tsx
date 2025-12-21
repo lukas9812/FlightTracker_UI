@@ -22,6 +22,7 @@ export default function NewFlightRecord() {
     // Notification
     const [showSuccess, setShowSuccess] = useState(false);
     const [note, setNote] = useState('');
+
     const addRecord = useFlightStore((state) => state.addRecord);
     const handleSearch = async (query: string, type: 'from' | 'destination') => {
         if (type === 'from') setFrom(query);
@@ -93,16 +94,12 @@ export default function NewFlightRecord() {
         <div>
             {showSuccess && (
                 <div className="fixed top-5 right-5 z-50 animate-in fade-in slide-in-from-right-5">
-                    <NotificationSuccess
-                        headerText="Successfully saved"
-                        description="Flight record was saved successfully."
-                    />
+                    <NotificationSuccess headerText="Successfully saved" description="Flight record was saved successfully."/>
                 </div>
             )}
-            <form onSubmit={handleSubmit}>
 
-                <div
-                    className='bg-white text-gray-600 rounded-lg px-6 py-4 flex flex-col md:flex-row max-md:items-start gap-4 max-md:mx-auto'>
+            <form onSubmit={handleSubmit}>
+                <div className='bg-white text-gray-600 rounded-lg px-6 py-4 flex flex-col md:flex-row max-md:items-start gap-4 max-md:mx-auto'>
                     <div>
                         <div className='flex items-center gap-2'>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="green"
@@ -132,8 +129,7 @@ export default function NewFlightRecord() {
                                             setFrom(city.name);
                                             setFromId(city.id);
                                             setShowFromDropdown(false);
-                                        }}
-                                    >
+                                        }}>
                                         {city.name}
                                     </li>
                                 ))}
