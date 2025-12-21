@@ -1,4 +1,5 @@
 import React from "react";
+import {UrlStrings} from "@/app/models/urlStrings";
 
 export async function getFlights() {
     const res = await fetch('http://localhost:5288/api/flight-tracker/all', {
@@ -7,7 +8,6 @@ export async function getFlights() {
     if (!res.ok) return [];
     return res.json();
 }
-
 export default function DeleteButton({id, handleDelete}) {
     return (
         <button type='button'

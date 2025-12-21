@@ -3,7 +3,6 @@ import FlightsTable from "@/app/components/flightsTable";
 import {Space_Grotesk} from 'next/font/google';
 import {Metadata} from 'next'
 import {getFlights} from "@/app/services/flightService";
-import {useFlightStore} from "@/app/models/store";
 
 export const metadata: Metadata = {
     title: 'Flight Tracker',
@@ -15,7 +14,8 @@ const spaceGroteskLight = Space_Grotesk({
     display: 'swap',
 });
 
-export default async function FlightTrackerPage() {
+export default async function RootLayout() {
+
     const flights = await getFlights();
 
     return (

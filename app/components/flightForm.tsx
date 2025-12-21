@@ -51,8 +51,7 @@ export default function NewFlightRecord() {
         }
     };
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
+    const handleSubmit = async (e: React.FormEvent) => { e.preventDefault();
 
         const flightData = {
             from: from,
