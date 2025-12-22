@@ -30,9 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${spaceGroteskLight.className} antialiased scheme-dark`}
-      >
+      <body className={`${spaceGroteskLight.className} antialiased scheme-dark`}>
         {children}
       </body>
     </html>

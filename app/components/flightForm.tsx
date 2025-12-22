@@ -98,7 +98,7 @@ export default function NewFlightRecord() {
             )}
 
             <form onSubmit={handleSubmit}>
-                <div className="border text-slate-500 rounded-lg px-6 py-4 flex flex-col md:flex-row max-md:items-start gap-4 max-md:mx-auto">
+                <div className="border bg-slate-700 text-slate-500 rounded-lg px-6 py-4 flex flex-col md:flex-row max-md:items-start gap-4 max-md:mx-auto">
                     <div>
                         <div className="flex items-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="green"
@@ -113,7 +113,7 @@ export default function NewFlightRecord() {
                                value={from}
                                onChange={(e) => handleSearch(e.target.value, 'from')}
                                autoComplete="off"
-                               className="rounded border px-3 py-1.5 mt-1.5 text-sm outline-none"
+                               className="bg-black text-white rounded border px-3 py-1.5 mt-1.5 text-sm outline-none"
                                placeholder="Type here" required
                         />
                         {showFromDropdown && fromSuggestion?.length > 0 && (
@@ -149,7 +149,7 @@ export default function NewFlightRecord() {
                                value={destination}
                                onChange={(e) => handleSearch(e.target.value, 'destination')}
                                autoComplete="off"
-                               className=" rounded border px-3 py-1.5 mt-1.5 text-sm outline-none"
+                               className="bg-black text-white rounded border px-3 py-1.5 mt-1.5 text-sm outline-none"
                                placeholder="Type here" required
                         />
                         {showDestDropdown && destSuggestions?.length > 0 && (
@@ -187,7 +187,7 @@ export default function NewFlightRecord() {
                             <label htmlFor="checkIn" className="text-white">Date</label>
                         </div>
                         <input id="flightDate" type="date"
-                               className=" rounded border px-3 py-1.5 mt-1.5 text-sm outline-none"
+                               className="bg-black text-white rounded border px-3 py-1.5 mt-1.5 text-sm outline-none"
                         />
                     </div>
 
@@ -203,7 +203,7 @@ export default function NewFlightRecord() {
                             <label htmlFor="notesInput" className="text-white">Note</label>
                         </div>
                         <input id="notesInput" type="text"
-                               className="w-80 rounded border px-3 py-1.5 mt-1.5 text-sm outline-none"
+                               className="bg-black text-white w-80 rounded border px-3 py-1.5 mt-1.5 text-sm outline-none"
                                placeholder="Type here" required
                                value={note}
                                onChange={e => setNote(e.target.value)}
