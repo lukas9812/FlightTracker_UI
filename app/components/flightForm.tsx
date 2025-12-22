@@ -98,22 +98,22 @@ export default function NewFlightRecord() {
             )}
 
             <form onSubmit={handleSubmit}>
-                <div className='bg-white text-gray-600 rounded-lg px-6 py-4 flex flex-col md:flex-row max-md:items-start gap-4 max-md:mx-auto'>
+                <div className="border text-slate-500 rounded-lg px-6 py-4 flex flex-col md:flex-row max-md:items-start gap-4 max-md:mx-auto">
                     <div>
-                        <div className='flex items-center gap-2'>
+                        <div className="flex items-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="green"
                                  className="size-5">
                                 <path fillRule="evenodd"
                                       d="M5.22 14.78a.75.75 0 0 0 1.06 0l7.22-7.22v5.69a.75.75 0 0 0 1.5 0v-7.5a.75.75 0 0 0-.75-.75h-7.5a.75.75 0 0 0 0 1.5h5.69l-7.22 7.22a.75.75 0 0 0 0 1.06Z"
                                       clipRule="evenodd"/>
                             </svg>
-                            <label htmlFor="departureInput">Departure</label>
+                            <label htmlFor="departureInput" className="text-white">Departure</label>
                         </div>
                         <input list='departures' id="departureInput" type="text"
                                value={from}
                                onChange={(e) => handleSearch(e.target.value, 'from')}
                                autoComplete="off"
-                               className="rounded border border-gray-200 px-3 py-1.5 mt-1.5 text-sm outline-none"
+                               className="rounded border px-3 py-1.5 mt-1.5 text-sm outline-none"
                                placeholder="Type here" required
                         />
                         {showFromDropdown && fromSuggestion?.length > 0 && (
@@ -143,13 +143,13 @@ export default function NewFlightRecord() {
                                 <path
                                     d="M6.28 5.22a.75.75 0 0 0-1.06 1.06l7.22 7.22H6.75a.75.75 0 0 0 0 1.5h7.5a.747.747 0 0 0 .75-.75v-7.5a.75.75 0 0 0-1.5 0v5.69L6.28 5.22Z"/>
                             </svg>
-                            <label htmlFor="arrivalInput">Arrival</label>
+                            <label htmlFor="arrivalInput" className="text-white">Arrival</label>
                         </div>
                         <input list='arrivals' id="arrivalInput" type="text"
                                value={destination}
                                onChange={(e) => handleSearch(e.target.value, 'destination')}
                                autoComplete="off"
-                               className=" rounded border border-gray-200 px-3 py-1.5 mt-1.5 text-sm outline-none"
+                               className=" rounded border px-3 py-1.5 mt-1.5 text-sm outline-none"
                                placeholder="Type here" required
                         />
                         {showDestDropdown && destSuggestions?.length > 0 && (
@@ -184,10 +184,10 @@ export default function NewFlightRecord() {
                                       d="M5.75 2a.75.75 0 0 1 .75.75V4h7V2.75a.75.75 0 0 1 1.5 0V4h.25A2.75 2.75 0 0 1 18 6.75v8.5A2.75 2.75 0 0 1 15.25 18H4.75A2.75 2.75 0 0 1 2 15.25v-8.5A2.75 2.75 0 0 1 4.75 4H5V2.75A.75.75 0 0 1 5.75 2Zm-1 5.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h10.5c.69 0 1.25-.56 1.25-1.25v-6.5c0-.69-.56-1.25-1.25-1.25H4.75Z"
                                       clipRule="evenodd"/>
                             </svg>
-                            <label htmlFor="checkIn">Date</label>
+                            <label htmlFor="checkIn" className="text-white">Date</label>
                         </div>
                         <input id="flightDate" type="date"
-                               className=" rounded border border-gray-200 px-3 py-1.5 mt-1.5 text-sm outline-none"
+                               className=" rounded border px-3 py-1.5 mt-1.5 text-sm outline-none"
                         />
                     </div>
 
@@ -200,10 +200,10 @@ export default function NewFlightRecord() {
                                 <path
                                     d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0 0 10 3H4.75A2.75 2.75 0 0 0 2 5.75v9.5A2.75 2.75 0 0 0 4.75 18h9.5A2.75 2.75 0 0 0 17 15.25V10a.75.75 0 0 0-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5Z"/>
                             </svg>
-                            <label htmlFor="notesInput">Note</label>
+                            <label htmlFor="notesInput" className="text-white">Note</label>
                         </div>
                         <input id="notesInput" type="text"
-                               className="w-80 rounded border border-gray-200 px-3 py-1.5 mt-1.5 text-sm outline-none"
+                               className="w-80 rounded border px-3 py-1.5 mt-1.5 text-sm outline-none"
                                placeholder="Type here" required
                                value={note}
                                onChange={e => setNote(e.target.value)}
@@ -212,11 +212,10 @@ export default function NewFlightRecord() {
                 </div>
                 <div className='flex items-center justify-center gap-2'>
                     <button
-                        className='mt-4 flex justify-center gap-1 rounded-md bg-black py-3 px-4 text-white my-auto cursor-pointer max-md:w-full max-md:py-1'>
+                        className="mt-4 flex justify-center gap-1 rounded-md py-3 px-4 my-auto cursor-pointer max-md:w-full max-md:py-1 bg-linear-to-r from-blue-600 via-purple-500 to-red-500 text-black hover:from-red-500 hover:via-purple-500 hover:to-blue-600 transition-colors">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                              className="size-5">
-                            <path
-                                d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z"/>
+                            <path d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z"/>
                         </svg>
                         <span>Add</span>
                     </button>
