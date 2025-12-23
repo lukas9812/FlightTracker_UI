@@ -2,25 +2,26 @@
 
 import React, {useState} from 'react';
 import {UrlStrings} from "@/app/models/urlStrings";
+import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const router = useRouter();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
         const loginData = {email, password};
-
         const response = await fetch(UrlStrings.login, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(loginData),
-            credentials: 'include'
+            credentials: 'include',
         });
 
         if (response.ok) {
-            alert('Přihlášení úspěšné!');
+            router.push('/flight-tracker');
         } else {
             alert('Chyba při přihlášení.');
         }
@@ -66,7 +67,7 @@ export default function LoginPage() {
                             <a href="#" className="text-sm text-blue-500 hover:text-blue-600">Forgot Password?</a>
                         </div>
                         <p className='text-center py-8'>
-                            Do not have an account? <a href="/signup" className="flex flex-col items-center bg-linear-to-r from-blue-600 via-purple-500 to-red-500 bg-clip-text text-transparent">Sign up</a>
+                            Do not have an account? <a href="/register" className="flex flex-col items-center bg-linear-to-r from-blue-600 via-purple-500 to-red-500 bg-clip-text text-transparent">Sign up</a>
                         </p>
                     </form>
             </div>
