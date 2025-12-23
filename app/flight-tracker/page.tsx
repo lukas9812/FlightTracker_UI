@@ -2,7 +2,6 @@ import NewFlightRecord from "@/app/components/flightForm";
 import FlightsTable from "@/app/components/flightsTable";
 import {Metadata} from 'next'
 import {getFlights} from "@/app/services/flightService";
-import Image from "next/image";
 
 export const metadata: Metadata = {
     title: 'Flight Tracker',
