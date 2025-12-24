@@ -1,8 +1,9 @@
 'use client'
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {UrlStrings} from "@/app/models/urlStrings";
 import {useRouter} from 'next/navigation';
 import Image from "next/image";
+import LogoutButton from "@/app/components/logoutButton";
 
 export default function RegisterPage() {
 
@@ -43,63 +44,64 @@ export default function RegisterPage() {
     return (
         <div className="relative min-h-screen">
             <Image
-                src="/dark-2.jpg"
-                alt="Pozadí Airbus A380"
+                src="/test.jpg"
+                alt="Register page background"
                 fill
-                className="object-cover"
                 unoptimized={true}
                 priority
             />
-            <div className="relative z-10 flex flex-row items-start justify-center gap-20 pt-20 w-full">
-                <div className="flex flex-col max-w-md">
-                <h1 className="block text-4xl font-medium bg-linear-to-r from-blue-600 via-purple-500 to-red-500 bg-clip-text text-transparent">
-                    Create your FREE account
-                </h1>
-                <p className="pt-7 text-slate-500 font-light">
-                    Nice to meet you! Enter your details to register.
-                </p>
-                <form onSubmit={handleSubmit} className="mt-8 p-8 mb-2 rounded-lg w-80 sm:w-96">
-                    <div className="mb-1 flex flex-col gap-6">
-                        <div className="w-full max-w-sm min-w-50">
-                            <label className="block mb-2 text-sm text-white">
-                                Your Name
-                            </label>
-                            <input type="text"
-                                   className="w-full rounded-lg border border-gray-300 px-3 py-2 transition outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
-                                   placeholder="Your Name"
-                                   value={name}
-                                   onChange={e => setName(e.target.value)}
-                            />
+
+            <div
+                className="pb-20 relative z-10 flex min-h-screen flex-col lg:flex-row items-center justify-center gap-8 lg:gap-32 w-full">
+                <div className="p-8 lg:p-16 flex flex-col max-w-md">
+                    <h1 className="text-4xl font-medium bg-linear-to-r from-blue-600 via-purple-500 to-red-500 bg-clip-text text-transparent">
+                        Create your FREE account
+                    </h1>
+                    <p className="pt-7 text-white font-light">
+                        Nice to meet you! Enter your details to register.
+                    </p>
+                    <form onSubmit={handleSubmit} className="mt-8 mb-2 rounded-lg w-80 sm:w-96">
+                        <div className="mb-1 flex flex-col gap-6">
+                            <div className="w-full max-w-sm min-w-50">
+                                <label className="block mb-2 text-sm text-white">
+                                    Your Name
+                                </label>
+                                <input type="text"
+                                       className="w-full rounded-lg border border-gray-300 px-3 py-2 transition outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+                                       placeholder="Your Name"
+                                       value={name}
+                                       onChange={e => setName(e.target.value)}
+                                />
+                            </div>
+                            <div className="w-full max-w-sm min-w-50">
+                                <label className="block mb-2 text-sm text-white">
+                                    Email
+                                </label>
+                                <input type="email"
+                                       className="w-full rounded-lg border border-gray-300 px-3 py-2 transition outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+                                       placeholder="Your Email"
+                                       value={email}
+                                       onChange={e => setEmail(e.target.value)}/>
+                            </div>
+                            <div className="w-full max-w-sm min-w-50">
+                                <label className="block mb-2 text-sm text-white">
+                                    Password
+                                </label>
+                                <input type="password"
+                                       className="w-full rounded-lg border border-gray-300 px-3 py-2 transition outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+                                       placeholder="Your Password"
+                                       value={password}
+                                       onChange={e => setPassword(e.target.value)}
+                                />
+                            </div>
                         </div>
-                        <div className="w-full max-w-sm min-w-50">
-                            <label className="block mb-2 text-sm text-white">
-                                Email
-                            </label>
-                            <input type="email"
-                                   className="w-full rounded-lg border border-gray-300 px-3 py-2 transition outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
-                                   placeholder="Your Email"
-                                   value={email}
-                                   onChange={e => setEmail(e.target.value)}/>
-                        </div>
-                        <div className="w-full max-w-sm min-w-50">
-                            <label className="block mb-2 text-sm text-white">
-                                Password
-                            </label>
-                            <input type="password"
-                                   className="w-full rounded-lg border border-gray-300 px-3 py-2 transition outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
-                                   placeholder="Your Password"
-                                   value={password}
-                                   onChange={e => setPassword(e.target.value)}
-                            />
-                        </div>
-                    </div>
-                    <div className="inline-flex items-center mt-2">
-                        <label className="flex items-center cursor-pointer relative" htmlFor="check-2">
-                            <input type="checkbox"
-                                   className="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-slate-800 checked:border-slate-800"
-                                   id="check-2"/>
-                            <span
-                                className="absolute text-white opacity-0 pointer-events-none peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                        <div className="inline-flex items-center mt-2">
+                            <label className="flex items-center cursor-pointer relative" htmlFor="check-2">
+                                <input type="checkbox"
+                                       className="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-slate-800 checked:border-slate-800"
+                                       id="check-2"/>
+                                <span
+                                    className="absolute text-white opacity-0 pointer-events-none peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" viewBox="0 0 20 20"
                                      fill="currentColor"
                                      stroke="currentColor" stroke-width="1">
@@ -108,21 +110,36 @@ export default function RegisterPage() {
                                       clip-rule="evenodd"></path>
                                 </svg>
                         </span>
-                        </label>
-                        <label className="cursor-pointer ml-2 text-white text-sm" htmlFor="check-2">
-                            Remember Me
-                        </label>
-                    </div>
-                    <button
-                        className="mt-4 flex justify-center mx-auto gap-1 rounded-md py-3 px-4 my-auto cursor-pointer max-md:w-full max-md:py-1 bg-linear-to-r from-blue-600 via-purple-500 to-red-500 text-black hover:from-red-500 hover:via-purple-500 hover:to-blue-600 transition-colors"
-                        type="submit">
-                        Sign Up
-                    </button>
-                </form>
-                    </div>
+                            </label>
+                            <label className="cursor-pointer ml-2 text-white text-sm" htmlFor="check-2">
+                                Remember Me
+                            </label>
+                        </div>
 
-                <div className="max-w-xs lg:mt-28 mt-75">
-                    <h2 className="text-white text-4xl font-semibold mb-6">Why join us?</h2>
+                        <div className="mt-4 flex items-center justify-center gap-4">
+                            <button
+                                type="button"
+                                onClick={() => router.push("/loginpagetest")}
+                                className="flex w-auto items-center justify-center rounded-lg p-3 bg-linear-to-r from-blue-600 via-purple-500 to-red-500 text-black hover:from-red-500 hover:via-purple-500 hover:to-blue-600 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                     className="size-5">
+                                    <path fill-rule="evenodd"
+                                          d="M17 10a.75.75 0 0 1-.75.75H5.612l4.158 3.96a.75.75 0 1 1-1.04 1.08l-5.5-5.25a.75.75 0 0 1 0-1.08l5.5-5.25a.75.75 0 1 1 1.04 1.08L5.612 9.25H16.25A.75.75 0 0 1 17 10Z"
+                                          clip-rule="evenodd"/>
+                                </svg>
+                                Back
+                            </button>
+                            <button
+                                className="flex w-auto items-center justify-center rounded-lg p-3 bg-linear-to-r from-blue-600 via-purple-500 to-red-500 text-black hover:from-red-500 hover:via-purple-500 hover:to-blue-600 transition-colors"
+                                type="submit">
+                                Sign Up
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <div className="max-w-xs">
+                    <h2 className="font-semibold mb-6 text-4xl">Why join us?</h2>
                     <ul className="space-y-4">
                         <li className="flex items-start gap-3">
                             <div

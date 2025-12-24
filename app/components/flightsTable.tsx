@@ -47,7 +47,7 @@ export default function FlightsTable({flightRecords}: Props) {
             )}
             <div className="w-full max-w-6xl text-slate-500">
                 <div className="p-1.5 inline-block align-middle">
-                    <div className="border  rounded-lg overflow-y-auto overflow-hidden max-h-60">
+                    <div className="rounded-lg overflow-y-auto overflow-hidden max-h-60">
                         <table className="w-full border-separate border-spacing-0 bg-slate-700">
                             <thead className="sticky top-0 bg-black z-10">
                             <tr>
