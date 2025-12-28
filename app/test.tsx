@@ -1,6 +1,6 @@
 export default function TestTable() {
     return (
-        <div className="relative h-96 md:h-56 md:max-h-none overflow-x-auto overflow-y-auto rounded-lg bg-neutral-primary-soft shadow-xs rounded-base border border-default">
+        <div className="relative h-80 lg:h-44 overflow-x-auto overflow-y-auto rounded-lg bg-black shadow-xs rounded-base">
             <table className="w-full text-sm text-left rtl:text-right text-body">
                 <thead className="sticky top-0 z-10 bg-red-500">
                 <tr>

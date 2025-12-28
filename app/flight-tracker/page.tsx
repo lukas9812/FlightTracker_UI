@@ -26,15 +26,20 @@ export default async function RootLayout() {
 
     return (
         <div>
-            <h1 className="pt-10 text-4xl font-extrabold leading-tight text-center">
-            <span className="pt-10 bg-linear-to-r from-blue-600 via-purple-500 to-red-500 bg-clip-text text-transparent">
-            Track your flights ..
+
+            <h1 className="mt-5 text-4xl font-extrabold leading-tight text-center">
+            <span className="bg-linear-to-r from-blue-600 via-purple-500 to-red-500 bg-clip-text text-transparent">
+                Track your flights ..
             </span>
             </h1>
 
-        <div className="pt-20 p-8">
-            <TestTable></TestTable>
-        </div>
+            <div className="mt-5">
+                <NewFlightRecord/>
+            </div>
+
+            <div className="p-8">
+                <TestTable></TestTable>
+            </div>
         </div>
 
         // <div className="relative min-h-screen">

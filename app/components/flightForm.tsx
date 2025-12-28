@@ -98,7 +98,7 @@ export default function NewFlightRecord() {
             )}
 
             <form onSubmit={handleSubmit}>
-                <div className="flex lg:flex-row lg:place-content-center gap-4 items-center">
+                <div className="flex flex-col lg:flex-row gap-4 items-center w-full">
                     <div>
                         <div className="flex items-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="green"
@@ -113,7 +113,7 @@ export default function NewFlightRecord() {
                                value={from}
                                onChange={(e) => handleSearch(e.target.value, 'from')}
                                autoComplete="off"
-                               className="bg-black text-white rounded border px-3 py-1.5 mt-1.5 text-sm outline-none"
+                               className="w-full lg:w-auto bg-black text-white rounded border px-3 py-1.5 mt-1.5 text-sm outline-none"
                                placeholder="Type here" required
                         />
                         {showFromDropdown && fromSuggestion?.length > 0 && (
@@ -179,23 +179,6 @@ export default function NewFlightRecord() {
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="white"
                                  className="size-5">
                                 <path
-                                    d="M5.25 12a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H6a.75.75 0 0 1-.75-.75V12ZM6 13.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V14a.75.75 0 0 0-.75-.75H6ZM7.25 12a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H8a.75.75 0 0 1-.75-.75V12ZM8 13.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V14a.75.75 0 0 0-.75-.75H8ZM9.25 10a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H10a.75.75 0 0 1-.75-.75V10ZM10 11.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V12a.75.75 0 0 0-.75-.75H10ZM9.25 14a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H10a.75.75 0 0 1-.75-.75V14ZM12 9.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V10a.75.75 0 0 0-.75-.75H12ZM11.25 12a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H12a.75.75 0 0 1-.75-.75V12ZM12 13.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V14a.75.75 0 0 0-.75-.75H12ZM13.25 10a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H14a.75.75 0 0 1-.75-.75V10ZM14 11.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V12a.75.75 0 0 0-.75-.75H14Z"/>
-                                <path fillRule="evenodd"
-                                      d="M5.75 2a.75.75 0 0 1 .75.75V4h7V2.75a.75.75 0 0 1 1.5 0V4h.25A2.75 2.75 0 0 1 18 6.75v8.5A2.75 2.75 0 0 1 15.25 18H4.75A2.75 2.75 0 0 1 2 15.25v-8.5A2.75 2.75 0 0 1 4.75 4H5V2.75A.75.75 0 0 1 5.75 2Zm-1 5.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h10.5c.69 0 1.25-.56 1.25-1.25v-6.5c0-.69-.56-1.25-1.25-1.25H4.75Z"
-                                      clipRule="evenodd"/>
-                            </svg>
-                            <label htmlFor="checkIn" className="text-white">Date</label>
-                        </div>
-                        <input id="flightDate" type="date"
-                               className="bg-black text-white rounded border px-3 py-1.5 mt-1.5 text-sm outline-none"
-                        />
-                    </div>
-
-                    <div>
-                        <div className='flex items-center gap-2'>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="white"
-                                 className="size-5">
-                                <path
                                     d="m5.433 13.917 1.262-3.155A4 4 0 0 1 7.58 9.42l6.92-6.918a2.121 2.121 0 0 1 3 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 0 1-.65-.65Z"/>
                                 <path
                                     d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0 0 10 3H4.75A2.75 2.75 0 0 0 2 5.75v9.5A2.75 2.75 0 0 0 4.75 18h9.5A2.75 2.75 0 0 0 17 15.25V10a.75.75 0 0 0-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5Z"/>
@@ -204,16 +187,31 @@ export default function NewFlightRecord() {
                             <label htmlFor="notesInput" className="text-white">Note</label>
                         </div>
                         <input id="notesInput" type="text"
-                               className="bg-transparent text-white w-80 rounded border px-3 py-1.5 mt-1.5 text-sm outline-none"
+                               className="bg-transparent text-white w-full lg:w-auto rounded border px-3 py-1.5 mt-1.5 text-sm outline-none"
                                placeholder="Type here" required
                                value={note}
                                onChange={e => setNote(e.target.value)}
                         />
                     </div>
+                    {/*<div>*/}
+                    {/*    <div className='flex items-center gap-2'>*/}
+                    {/*        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="white"*/}
+                    {/*             className="size-5">*/}
+                    {/*            <path*/}
+                    {/*                d="M5.25 12a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H6a.75.75 0 0 1-.75-.75V12ZM6 13.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V14a.75.75 0 0 0-.75-.75H6ZM7.25 12a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H8a.75.75 0 0 1-.75-.75V12ZM8 13.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V14a.75.75 0 0 0-.75-.75H8ZM9.25 10a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H10a.75.75 0 0 1-.75-.75V10ZM10 11.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V12a.75.75 0 0 0-.75-.75H10ZM9.25 14a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H10a.75.75 0 0 1-.75-.75V14ZM12 9.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V10a.75.75 0 0 0-.75-.75H12ZM11.25 12a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H12a.75.75 0 0 1-.75-.75V12ZM12 13.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V14a.75.75 0 0 0-.75-.75H12ZM13.25 10a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H14a.75.75 0 0 1-.75-.75V10ZM14 11.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V12a.75.75 0 0 0-.75-.75H14Z"/>*/}
+                    {/*            <path fillRule="evenodd"*/}
+                    {/*                  d="M5.75 2a.75.75 0 0 1 .75.75V4h7V2.75a.75.75 0 0 1 1.5 0V4h.25A2.75 2.75 0 0 1 18 6.75v8.5A2.75 2.75 0 0 1 15.25 18H4.75A2.75 2.75 0 0 1 2 15.25v-8.5A2.75 2.75 0 0 1 4.75 4H5V2.75A.75.75 0 0 1 5.75 2Zm-1 5.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h10.5c.69 0 1.25-.56 1.25-1.25v-6.5c0-.69-.56-1.25-1.25-1.25H4.75Z"*/}
+                    {/*                  clipRule="evenodd"/>*/}
+                    {/*        </svg>*/}
+                    {/*        <label htmlFor="checkIn" className="text-white">Date</label>*/}
+                    {/*    </div>*/}
+                    {/*    <input id="flightDate" type="date"*/}
+                    {/*           className="w-full lg:w-auto bg-black text-white rounded border px-3 py-1.5 mt-1.5 text-sm outline-none"/>*/}
+                    {/*</div>*/}
                 </div>
-                <div className='flex items-center justify-center gap-2'>
+                <div className='w-full flex justify-center mt-4 items-center'>
                     <button
-                        className="mt-4 flex justify-center gap-1 rounded-md py-3 px-4 my-auto cursor-pointer max-md:w-full max-md:py-1 bg-linear-to-r from-blue-600 via-purple-500 to-red-500 text-black hover:from-red-500 hover:via-purple-500 hover:to-blue-600 transition-colors">
+                        className="flex items-center justify-center gap-1 rounded-md py-3 px-6 cursor-pointer bg-linear-to-r from-blue-600 via-purple-500 to-red-500 text-black hover:from-red-500 hover:via-purple-500 hover:to-blue-600 transition-all font-medium shadow-md active:scale-95">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                              className="size-5">
                             <path d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z"/>
