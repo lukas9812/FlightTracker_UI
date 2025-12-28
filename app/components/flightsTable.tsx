@@ -45,14 +45,14 @@ export default function FlightsTable({flightRecords}: Props) {
                     <NotificationSuccess headerText="Successfully deleted" description="Flight record was deleted successfully."/>
                 </div>
             )}
-            <div className="w-full max-w-6xl text-slate-500">
-                <div className="p-1.5 inline-block align-middle">
-                    <div className="rounded-lg overflow-y-auto overflow-hidden max-h-60">
-                        <table className="w-full border-separate border-spacing-0 bg-slate-700">
+            <div className="pb-20 w-full max-w-full md:max-w-6xl items-center">
+                <div className="rounded-lg border border-slate-600">
+                    <div className="w-full overflow-x-auto overflow-y-auto">
+                        <table className="min-w-[300px]">
                             <thead className="sticky top-0 bg-black z-10">
                             <tr>
                                 {headers.map((text) => (
-                                    <th key={text} scope="col" className="text-white px-6 py-3 text-center text-sm font-medium uppercase">
+                                    <th key={text} scope="col" className="text-white px-6 py-3 text-center text-sm font-medium uppercase whitespace-nowrap">
                                         {text}
                                     </th>
                                 ))}
@@ -60,17 +60,17 @@ export default function FlightsTable({flightRecords}: Props) {
                             </thead>
                             <tbody className="divide-y divide-slate-600">
                             {flights.length > 0 && flights.map((flight) => (
-                                <tr key={flight.id} className="px-6 py-4 text-center whitespace-nowrap hover:bg-slate-600 text-slate-500 text-sm">
-                                    <td className="text-white">{flight.fromCity}</td>
-                                    <td>{flight.fromCountry}</td>
-                                    <td className="text-white">{flight.toCity}</td>
-                                    <td>{flight.toCountry}</td>
-                                    <td className="text-white">{flight.distance} km</td>
-                                    <td>{flight.note}</td>
-                                    <td className="px-6 py-4 font-medium">
+                                <tr key={flight.id} className="hover:bg-slate-600 text-slate-500 text-sm">
+                                    <td className="px-6 py-4 text-center whitespace-nowrap text-white">{flight.fromCity}</td>
+                                    <td className="px-6 py-4 text-center whitespace-nowrap">{flight.fromCountry}</td>
+                                    <td className="px-6 py-4 text-center whitespace-nowrap text-white">{flight.toCity}</td>
+                                    <td className="px-6 py-4 text-center whitespace-nowrap">{flight.toCountry}</td>
+                                    <td className="px-6 py-4 text-center whitespace-nowrap text-white">{flight.distance} km</td>
+                                    <td className="px-6 py-4 text-center whitespace-nowrap">{flight.note}</td>
+                                    <td className="px-6 py-4 text-center whitespace-nowrap font-medium">
                                         <button type='button'
                                                 onClick={() => handleDelete(flight.id)}
-                                                className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-red-600 hover:text-red-800 focus:outline-hidden focus:text-red-800 disabled:opacity-50 disabled:pointer-events-none">
+                                                className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-red-600 hover:text-red-800 focus:outline-none focus:text-red-800 disabled:opacity-50 disabled:pointer-events-none">
                                             Delete
                                         </button>
                                     </td>

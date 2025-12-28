@@ -44,7 +44,7 @@ export default function RegisterPage() {
     return (
         <div className="relative min-h-screen">
             <Image
-                src="/test.jpg"
+                src="/register-page-bg.jpg"
                 alt="Register page background"
                 fill
                 unoptimized={true}
@@ -119,7 +119,7 @@ export default function RegisterPage() {
                         <div className="mt-4 flex items-center justify-center gap-4">
                             <button
                                 type="button"
-                                onClick={() => router.push("/loginpagetest")}
+                                onClick={() => router.push("/login")}
                                 className="flex w-auto items-center justify-center rounded-lg p-3 bg-linear-to-r from-blue-600 via-purple-500 to-red-500 text-black hover:from-red-500 hover:via-purple-500 hover:to-blue-600 transition-colors">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                                      className="size-5">

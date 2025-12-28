@@ -98,7 +98,7 @@ export default function NewFlightRecord() {
             )}
 
             <form onSubmit={handleSubmit}>
-                <div className="text-slate-500 rounded-lg px-6 py-4 flex flex-col md:flex-row max-md:items-start gap-4 max-md:mx-auto">
+                <div className="flex lg:flex-row lg:place-content-center gap-4 items-center">
                     <div>
                         <div className="flex items-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="green"

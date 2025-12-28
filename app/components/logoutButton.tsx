@@ -14,7 +14,7 @@ export default function LogoutButton() {
 
         if (response.ok) {
             localStorage.clear();
-            router.push('/loginpagetest');
+            router.push('/login');
             router.refresh();
         }
     };

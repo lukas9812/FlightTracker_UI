@@ -31,7 +31,7 @@ export default function LoginPage() {
     return (
         <div className="relative min-h-screen flex bg-black">
             <Image
-                src="/black.jpg"
+                src="/login-page-bg.jpg"
                 alt="Pozadí Airbus A380"
                 fill
                 className="object-cover"
@@ -112,8 +112,7 @@ export default function LoginPage() {
                         {/* Submit Button */}
                         <button
                             type="submit"
-                            className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-                        >
+                            className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
                             Sign in
                         </button>
                     </form>
