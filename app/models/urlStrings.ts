@@ -7,4 +7,6 @@ export const UrlStrings = {
     register: 'http://localhost:5288/api/register',
     login : 'http://localhost:5288/api/login',
     logout : 'http://localhost:5288/api/logout',
+    updateFlight: 'http://localhost:5288/api/flight-tracker/update',
+
 }

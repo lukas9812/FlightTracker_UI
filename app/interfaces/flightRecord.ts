@@ -4,6 +4,8 @@ export interface FlightRecord {
     toCity: string;
     fromCountry: string;
     toCountry: string;
+    fromId: string;
+    toId: string;
     note: string;
     distance: number;
     length: number;

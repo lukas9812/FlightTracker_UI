@@ -19,3 +19,99 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+@keyframes spin-border {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes fade-in-border {
+  to { background: conic-gradient(#22c55e, #3b82f6, #a855f7, #22c55e); }
+}
+
+.animated-border {
+  position: relative;
+  /* Definice čtverce */
+  width: 48px;
+  height: 48px;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.animated-border::before {
+  content: "";
+  position: absolute;
+  width: 300%; /* Pro čtverec raději větší přesah */
+  height: 300%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: conic-gradient(
+          from 0deg,
+          transparent 0deg,
+          transparent 150deg, /* Dlouhý had */
+          #22c55e 200deg,
+          #3b82f6 280deg,
+          #a855f7 360deg
+  );
+  animation:
+          spin-border 1.5s linear 2,
+          fade-in-border 0.5s ease-in 3s forwards;
+  z-index: -1;
+}
+
+.animated-border > button {
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  background: #000; /* Ujistěte se, že toto je barva, kterou chcete */
+  color: white;
+  border-radius: 10px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  outline: none; /* Odstraní modrý/černý obrys po kliknutí */
+  transition: background 0.2s;
+}
+
+/* Zabrání zčernání/změně barvy při kliku */
+.animated-border > button:active {
+  background: #111;
+}
+
+.animated-border > button {
+  /* Tlačítko vyplní čtvercový rodičovský div minus 4px (border) */
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  background: #000;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 0; /* Odstraníme padding, aby nebyl obdélník */
+}
+
+.glow-form {
+  position: relative;
+  display: inline-block;
+  z-index: 1; /* obsah nad září */
+}
+
+.glow-form::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px; /* nebo podle formy */
+  background-color: #facc15; /* žlutá */
+  filter: blur(20px);
+  opacity: 0.6;
+  z-index: -1; /* pod obsah */
+}

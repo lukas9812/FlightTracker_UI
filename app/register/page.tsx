@@ -105,9 +105,9 @@ export default function RegisterPage() {
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" viewBox="0 0 20 20"
                                      fill="currentColor"
                                      stroke="currentColor" stroke-width="1">
-                                <path fill-rule="evenodd"
+                                <path fillRule="evenodd"
                                       d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                      clip-rule="evenodd"></path>
+                                      clipRule="evenodd"></path>
                                 </svg>
                         </span>
                             </label>
@@ -123,9 +123,9 @@ export default function RegisterPage() {
                                 className="flex w-auto items-center justify-center rounded-lg p-3 bg-linear-to-r from-blue-600 via-purple-500 to-red-500 text-black hover:from-red-500 hover:via-purple-500 hover:to-blue-600 transition-colors">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                                      className="size-5">
-                                    <path fill-rule="evenodd"
+                                    <path fillRule="evenodd"
                                           d="M17 10a.75.75 0 0 1-.75.75H5.612l4.158 3.96a.75.75 0 1 1-1.04 1.08l-5.5-5.25a.75.75 0 0 1 0-1.08l5.5-5.25a.75.75 0 1 1 1.04 1.08L5.612 9.25H16.25A.75.75 0 0 1 17 10Z"
-                                          clip-rule="evenodd"/>
+                                          clipRule="evenodd"/>
                                 </svg>
                                 Back
                             </button>

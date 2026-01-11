@@ -4,10 +4,8 @@ import {Metadata} from 'next'
 import {getFlights} from "@/app/services/flightService";
 import {cookies} from "next/headers";
 import {redirect} from "next/navigation";
-import LogoutButton from "@/app/components/logoutButton";
-import Image from "next/image";
 import React from "react";
-import TestTable from "@/app/test";
+import DropDownMenu from "@/app/components/dropdownMenu";
 
 export const metadata: Metadata = {
     title: 'Flight Tracker',
@@ -26,8 +24,10 @@ export default async function RootLayout() {
 
     return (
         <div>
-
-            <h1 className="mt-5 text-4xl font-extrabold leading-tight text-center">
+            <div className="fixed top-5 right-5 z-50 animate-in fade-in">
+                <DropDownMenu></DropDownMenu>
+            </div>
+            <h1 className="mt-8 ml-6 lg:ml-0 text-start text-2xl lg:text-4xl font-extrabold leading-tight lg:text-center">
             <span className="bg-linear-to-r from-blue-600 via-purple-500 to-red-500 bg-clip-text text-transparent">
                 Track your flights ..
             </span>
@@ -37,8 +37,8 @@ export default async function RootLayout() {
                 <NewFlightRecord/>
             </div>
 
-            <div className="p-8">
-                <TestTable></TestTable>
+            <div className="p-12">
+                <FlightsTable flightRecords={flights} />
             </div>
         </div>
 

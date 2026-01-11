@@ -24,12 +24,13 @@ export default function NewFlightRecord() {
     const [note, setNote] = useState('');
 
     const addRecord = useFlightStore((state) => state.addRecord);
+
     const handleSearch = async (query: string, type: 'from' | 'destination') => {
         if (type === 'from') setFrom(query);
         else setDestination(query);
 
         if (query.length >= 3) {
-            const response = await fetch(UrlStrings.searchCities(query), { credentials: 'include' });
+            const response = await fetch(UrlStrings.searchCities(query), {credentials: 'include'});
 
             if (response.ok) {
                 const data = await response.json();
@@ -51,7 +52,8 @@ export default function NewFlightRecord() {
         }
     };
 
-    const handleSubmit = async (e: React.FormEvent) => { e.preventDefault();
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
 
         const flightData = {
             from: from,
@@ -93,12 +95,13 @@ export default function NewFlightRecord() {
         <div>
             {showSuccess && (
                 <div className="fixed top-5 right-5 z-50 animate-in fade-in slide-in-from-right-5">
-                    <NotificationSuccess headerText="Successfully saved" description="Flight record was saved successfully."/>
+                    <NotificationSuccess headerText="Successfully saved"
+                                         description="Flight record was saved successfully."/>
                 </div>
             )}
 
             <form onSubmit={handleSubmit}>
-                <div className="flex flex-col lg:flex-row gap-4 items-center w-full">
+                <div className="flex flex-col w-full lg:flex-row gap-4 items-center justify-center">
                     <div>
                         <div className="flex items-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="green"
@@ -122,7 +125,7 @@ export default function NewFlightRecord() {
                                 data-popover="menu"
                                 data-popover-placement="bottom">
                                 {fromSuggestion.map((city) => (
-                                    <li className="px-4 py-2 hover:bg-gray-500/10 cursor-pointer"
+                                    <li className="px-3 py-2 hover:bg-blue-50 cursor-pointer text-sm text-gray-700"
                                         key={city.name}
                                         onClick={() => {
                                             setFrom(city.name);
@@ -165,8 +168,7 @@ export default function NewFlightRecord() {
                                             setDestination(city.name);
                                             setDestinationId(city.id);
                                             setShowDestDropdown(false);
-                                        }}
-                                    >
+                                        }}>
                                         {city.name}
                                     </li>
                                 ))}
@@ -176,7 +178,7 @@ export default function NewFlightRecord() {
 
                     <div>
                         <div className='flex items-center gap-2'>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="white"
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="gray"
                                  className="size-5">
                                 <path
                                     d="m5.433 13.917 1.262-3.155A4 4 0 0 1 7.58 9.42l6.92-6.918a2.121 2.121 0 0 1 3 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 0 1-.65-.65Z"/>
@@ -193,28 +195,14 @@ export default function NewFlightRecord() {
                                onChange={e => setNote(e.target.value)}
                         />
                     </div>
-                    {/*<div>*/}
-                    {/*    <div className='flex items-center gap-2'>*/}
-                    {/*        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="white"*/}
-                    {/*             className="size-5">*/}
-                    {/*            <path*/}
-                    {/*                d="M5.25 12a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H6a.75.75 0 0 1-.75-.75V12ZM6 13.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V14a.75.75 0 0 0-.75-.75H6ZM7.25 12a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H8a.75.75 0 0 1-.75-.75V12ZM8 13.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V14a.75.75 0 0 0-.75-.75H8ZM9.25 10a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H10a.75.75 0 0 1-.75-.75V10ZM10 11.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V12a.75.75 0 0 0-.75-.75H10ZM9.25 14a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H10a.75.75 0 0 1-.75-.75V14ZM12 9.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V10a.75.75 0 0 0-.75-.75H12ZM11.25 12a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H12a.75.75 0 0 1-.75-.75V12ZM12 13.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V14a.75.75 0 0 0-.75-.75H12ZM13.25 10a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H14a.75.75 0 0 1-.75-.75V10ZM14 11.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V12a.75.75 0 0 0-.75-.75H14Z"/>*/}
-                    {/*            <path fillRule="evenodd"*/}
-                    {/*                  d="M5.75 2a.75.75 0 0 1 .75.75V4h7V2.75a.75.75 0 0 1 1.5 0V4h.25A2.75 2.75 0 0 1 18 6.75v8.5A2.75 2.75 0 0 1 15.25 18H4.75A2.75 2.75 0 0 1 2 15.25v-8.5A2.75 2.75 0 0 1 4.75 4H5V2.75A.75.75 0 0 1 5.75 2Zm-1 5.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h10.5c.69 0 1.25-.56 1.25-1.25v-6.5c0-.69-.56-1.25-1.25-1.25H4.75Z"*/}
-                    {/*                  clipRule="evenodd"/>*/}
-                    {/*        </svg>*/}
-                    {/*        <label htmlFor="checkIn" className="text-white">Date</label>*/}
-                    {/*    </div>*/}
-                    {/*    <input id="flightDate" type="date"*/}
-                    {/*           className="w-full lg:w-auto bg-black text-white rounded border px-3 py-1.5 mt-1.5 text-sm outline-none"/>*/}
-                    {/*</div>*/}
                 </div>
                 <div className='w-full flex justify-center mt-4 items-center'>
                     <button
-                        className="flex items-center justify-center gap-1 rounded-md py-3 px-6 cursor-pointer bg-linear-to-r from-blue-600 via-purple-500 to-red-500 text-black hover:from-red-500 hover:via-purple-500 hover:to-blue-600 transition-all font-medium shadow-md active:scale-95">
+                        className="flex items-center justify-center gap-1 rounded-md py-3 px-2 cursor-pointer bg-linear-to-r from-blue-600 via-purple-500 to-red-500 text-black hover:from-red-500 hover:via-purple-500 hover:to-blue-600 transition-all font-medium shadow-md active:scale-95">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                              className="size-5">
-                            <path d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z"/>
+                            <path
+                                d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z"/>
                         </svg>
                         <span>Add</span>
                     </button>
